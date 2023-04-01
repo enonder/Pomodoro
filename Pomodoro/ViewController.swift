@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     var player: AVAudioPlayer!
     
     @IBAction func myButton(_ sender: UIButton) {
-//        TODO: sender.currentTitle bug fix -- (check optional unwrapping)
+        timer.invalidate()
         if(sender.currentTitle == "25:00"){
             duration = 25 * 60
         } else if(sender.currentTitle == "50:00"){
             duration = 50 * 60
         }
 
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decreaseTimer), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decreaseTimer), userInfo: nil, repeats: true)
  
     }
     
